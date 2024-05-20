@@ -18,13 +18,13 @@ dependencies {
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
 
 }
-
-test {
-    useTestNG()
-}
-
 task webdriverUpdate {
     doLast {
         io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
     }
 }
+
+test {
+    useTestNG()
+}
+
