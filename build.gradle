@@ -22,3 +22,9 @@ dependencies {
 test {
     useTestNG()
 }
+
+task webdriverUpdate {
+    doLast {
+        io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
+    }
+}
