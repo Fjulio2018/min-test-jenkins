@@ -21,9 +21,6 @@ public class TestNG {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");  // Adiciona o modo headless
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");  // Adiciona esta linha se estiver usando a versão do Chrome para Linux
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
 
