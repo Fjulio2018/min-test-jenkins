@@ -28,16 +28,16 @@ jobs:
         sudo apt-get install -y google-chrome-stable
 
     - name: Set up ChromeDriver with WebDriver Manager
-      run: ./gradlew webdriverUpdate
+      run: chmod +x ./gradlew webdriverUpdate
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: chmod +x ./gradlew build
 
     - name: Run tests with Gradle
-      run: ./gradlew test
+      run:  chmod +x ./gradlew test
 
     - name: Archive test results
       if: always()
