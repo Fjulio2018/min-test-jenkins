@@ -18,10 +18,11 @@ dependencies {
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
 }
 
-task webdriverUpdate {
-    doLast {
-        io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
-    }
+// Configuração da task webdriverUpdate
+task webdriverUpdate(type: JavaExec) {
+    main = 'io.github.bonigarcia.wdm.WebDriverManager'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['chromedriver', 'setup']
 }
 
 test {
