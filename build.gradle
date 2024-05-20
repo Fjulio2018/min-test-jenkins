@@ -10,14 +10,14 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.testng/testng
+    // TestNG para testes
     testImplementation 'org.testng:testng:7.10.2'
-// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+    // Selenium para automação web
     implementation 'org.seleniumhq.selenium:selenium-java:4.21.0'
-// https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager
+    // WebDriverManager para gerenciar drivers do Selenium
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
-
 }
+
 task webdriverUpdate {
     doLast {
         io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
@@ -27,4 +27,3 @@ task webdriverUpdate {
 test {
     useTestNG()
 }
-
