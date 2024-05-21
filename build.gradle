@@ -32,6 +32,13 @@ test {
     }
 }
 
+// Adicionando a tarefa setupWebdriverManager
+task setupWebdriverManager {
+    doLast {
+        io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
+    }
+}
+
 // Task para gerar o relatório
 task generateReport(type: Test) {
     useTestNG()
