@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ui_Testing.TestNG" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-20T19:25:07" hostname="AUTOBOZ" time="4.732">
+  <properties/>
+  <testcase name="subirPagona" classname="ui_Testing.TestNG" time="4.732"/>
+  <system-out><![CDATA[To Title: Learn - Tricentis
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
