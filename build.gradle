@@ -19,12 +19,23 @@ dependencies {
 }
 
 // Configuração da task webdriverUpdate
-task webdriverUpdate(type: JavaExec) {
-    main = 'io.github.bonigarcia.wdm.WebDriverManager'
-    classpath = sourceSets.main.runtimeClasspath
-    args = ['chromedriver', 'setup']
+task webdriverUpdate {
+    doLast {
+        io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
+    }
 }
 
 test {
     useTestNG()
+    reports {
+        junitXml.destination = file("${buildDir}/reports/tests")
+    }
 }
+
+// Configuração do relatório HTML
+task generateHtmlReport(type: TestReport) {
+    destinationDir = file("${buildDir}/reports/html")
+    reportOn test
+}
+
+tasks.test.finalizedBy generateHtmlReport
