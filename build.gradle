@@ -18,24 +18,25 @@ dependencies {
     implementation 'io.github.bonigarcia:webdrivermanager:5.8.0'
 }
 
-// Configuração da task webdriverUpdate
-task webdriverUpdate {
-    doLast {
-        io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
-    }
-}
-
 test {
     useTestNG()
+    beforeTest { descriptor ->
+        // Configurar o WebDriverManager antes de cada teste
+        if (descriptor.name.contains("Test")) {
+            io.github.bonigarcia.wdm.WebDriverManager.chromedriver().setup()
+        }
+    }
     reports {
-        junitXml.destination = file("${buildDir}/reports/tests")
+        junitXml.required.set(true)
+        html.required.set(true)
     }
 }
 
-// Configuração do relatório HTML
-task generateHtmlReport(type: TestReport) {
-    destinationDir = file("${buildDir}/reports/html")
-    reportOn test
+// Task para gerar o relatório
+task generateReport(type: Test) {
+    useTestNG()
+    reports {
+        junitXml.required.set(true)
+        html.required.set(true)
+    }
 }
-
-tasks.test.finalizedBy generateHtmlReport
