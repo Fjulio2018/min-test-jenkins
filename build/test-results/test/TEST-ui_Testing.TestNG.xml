@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ui_Testing.TestNG" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-21T20:29:31" hostname="AUTOBOZ" time="5.475">
+<testsuite name="ui_Testing.TestNG" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-21T20:43:45" hostname="AUTOBOZ" time="2.199">
   <properties/>
-  <testcase name="subirPagona" classname="ui_Testing.TestNG" time="5.475"/>
-  <system-out><![CDATA[To Title: Learn - Tricentis
+  <testcase name="subirPagina" classname="ui_Testing.TestNG" time="2.199"/>
+  <system-out><![CDATA[Title: Learn - Tricentis
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

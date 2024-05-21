@@ -5,39 +5,33 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 
 public class TestNG {
     WebDriver driver;
 
     @BeforeSuite
     public void setUp() {
-
+        // Configurar o WebDriverManager para baixar o ChromeDriver automaticamente
         WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // Adiciona o modo headless
-        driver = new ChromeDriver(options);
+
+        // Inicializar o driver do Chrome
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-
-
-
     }
+
     @Test
-    public void subirPagona(){
-        driver.navigate().to("https://blog.testproject.io/");
-        System.out.println("To Title: " + driver.getTitle());
-
+    public void subirPagina() {
+        // Navegar para a página de teste
+        driver.get("https://blog.testproject.io/");
+        System.out.println("Title: " + driver.getTitle());
     }
+
     @AfterSuite
-    public void tearDown(){
-        driver.quit();
+    public void tearDown() {
+        // Fechar o navegador após os testes
+        if (driver != null) {
+            driver.quit();
+        }
     }
-
-
 }

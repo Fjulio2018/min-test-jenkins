@@ -40,3 +40,5 @@ task generateReport(type: Test) {
         html.required.set(true)
     }
 }
+
+
