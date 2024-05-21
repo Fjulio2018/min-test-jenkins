@@ -2,46 +2,40 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
   pull_request:
-    branches:
-      - main
+    branches: ["main"]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
-    - name: Check out repository
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Set up JDK 17
-      uses: actions/setup-java@v3
+      uses: actions/setup-java@v4
       with:
-        distribution: 'temurin' # Adoptium distribution
         java-version: '17'
-
-    - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
+        distribution: 'temurin'
 
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x ./gradlew
 
-    - name: Set up ChromeDriver with WebDriver Manager
-      run: ./gradlew webdriverUpdate
-
-    - name: Build with Gradle
+    - name: Build with Gradle Wrapper
       run: ./gradlew build
 
-    - name: Run tests with Gradle
+    - name: Run tests
       run: ./gradlew test
 
-    - name: Archive test results
-      if: always()
+    - name: Generate report with Gradle
+      run: ./gradlew generateReport
+
+    - name: Archive report
       uses: actions/upload-artifact@v3
       with:
-        name: test-results
-        path: build/test-results/test
+        name: gradle-report
+        path: build/reports/tests/test
