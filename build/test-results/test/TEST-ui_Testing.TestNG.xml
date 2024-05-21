@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ui_Testing.TestNG" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-21T20:43:45" hostname="AUTOBOZ" time="2.199">
+<testsuite name="ui_Testing.TestNG" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-21T20:45:48" hostname="AUTOBOZ" time="2.246">
   <properties/>
-  <testcase name="subirPagina" classname="ui_Testing.TestNG" time="2.199"/>
+  <testcase name="subirPagina" classname="ui_Testing.TestNG" time="2.246"/>
   <system-out><![CDATA[Title: Learn - Tricentis
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

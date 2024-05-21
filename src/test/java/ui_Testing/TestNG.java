@@ -12,7 +12,7 @@ public class TestNG {
 
     @BeforeSuite
     public void setUp() {
-        // Configurar o WebDriverManager para baixar o ChromeDriver automaticamente
+        // Configurar o WebDriverManager para baixar automaticamente o ChromeDriver
         WebDriverManager.chromedriver().setup();
 
         // Inicializar o driver do Chrome
